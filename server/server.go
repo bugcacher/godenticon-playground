@@ -10,7 +10,7 @@ import (
 )
 
 const (
-	HTTP_PORT = 8000
+	HTTP_PORT = "8000"
 )
 
 func Serve() {
@@ -20,8 +20,8 @@ func Serve() {
 	loggedHanlder := middlerwares.LogRequest(rateLimitedHandler)
 
 	router.Handle("/", loggedHanlder)
-
-	err := http.ListenAndServe(fmt.Sprintf(":%d", HTTP_PORT), router)
+	addr := fmt.Sprintf("0.0.0.0:%s", HTTP_PORT)
+	err := http.ListenAndServe(addr, router)
 	if err != nil {
 		log.Fatal("failed to start server")
 	}
