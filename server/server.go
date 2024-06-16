@@ -16,12 +16,13 @@ const (
 func Serve() {
 	router := http.NewServeMux()
 
-	rateLimitedHandler := middlerwares.RateLimiter(http.HandlerFunc(api.HandleGenerateIdenticon))
-	loggedHanlder := middlerwares.LogRequest(rateLimitedHandler)
+	router.Handle("/", http.HandlerFunc(api.HandleGenerateIdenticon))
+	router.Handle("/health", http.HandlerFunc(api.HandleHealth))
 
-	router.Handle("/", loggedHanlder)
+	routerWithMiddlewares := middlerwares.ApplyMiddlewares(router, middlerwares.LogRequest, middlerwares.RateLimiter, middlerwares.EnableCORS)
+
 	addr := fmt.Sprintf("0.0.0.0:%s", HTTP_PORT)
-	err := http.ListenAndServe(addr, router)
+	err := http.ListenAndServe(addr, routerWithMiddlewares)
 	if err != nil {
 		log.Fatal("failed to start server")
 	}
