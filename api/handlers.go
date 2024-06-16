@@ -57,3 +57,7 @@ func HandleGenerateIdenticon(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Type", "image/png")
 	w.Header().Set("Content-Length", fmt.Sprintf("%d", len(res.Buffer.Bytes())))
 }
+
+func HandleHealth(w http.ResponseWriter, r *http.Request) {
+	w.Write([]byte("Ok"))
+}
