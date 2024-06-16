@@ -1,0 +1,119 @@
+.App {
+    font-family: Arial, sans-serif;
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    text-align: center; /* Center align the form */
+    color: rgb(63, 60, 60);
+  }
+  
+  .form-group {
+    margin-bottom: 20px;
+    text-align: left; /* Left align form elements */
+  }
+  
+  label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+  }
+  
+  input[type="text"],
+  input[type="number"],
+  select {
+    width: 100%;
+    padding: 8px;
+    box-sizing: border-box;
+  }
+  
+  .switch {
+    position: relative;
+    display: inline-block;
+    width: 40px;
+    height: 24px;
+  }
+  
+  .switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+  
+  .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: .4s;
+    border-radius: 24px;
+  }
+  
+  .slider:before {
+    position: absolute;
+    content: "";
+    height: 18px;
+    width: 18px;
+    left: 3px;
+    bottom: 3px;
+    background-color: white;
+    transition: .4s;
+    border-radius: 50%;
+  }
+  
+  input:checked + .slider {
+    background-color: #2196F3;
+  }
+  
+  input:checked + .slider:before {
+    transform: translateX(16px);
+  }
+  
+  .image-container {
+    margin-top: 20px;
+  }
+  
+  .image-placeholder-light {
+    width: 205px;
+    height: 205px;
+    border: 1px solid #7f7d7d;
+    background-color: #fff;
+    display: inline-block;
+    padding: 10px;
+    border-radius: 5px;
+  }
+
+  .image-placeholder-dark {
+    width: 205px;
+    height: 205px;
+    border: 1px solid #7f7d7d;
+    background-color: #000;
+    display: inline-block;
+    padding: 10px;
+    border-radius: 5px;
+  }
+  
+  .button-container {
+    text-align: center;
+  }
+  
+  .button-container button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .button-container button:hover {
+    background-color: #0056b3;
+  }
+  .custom-info-toast {
+    text-align:left;
+  }
+  
